@@ -1,15 +1,45 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --toolbar-padding: 40px
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+}
+
+@theme {
+  --font-gilroy: 'Gilroy', sans-serif;
+  --font-arsenal: 'Arsenal', sans-serif;
+
+  --color-controls-btn: #ffffff;
+
+  --color-white-100: #F3EFE9;
+  --color-white: #FFFFFF;
+
+  --color-gold: #D9B48F;
+
+  --color-red: #EA3B54;
+
+  --color-dark-300: #989898;
+  --color-dark-200: #282727;
+  --color-dark-100: #2D2D2D;
+  --color-dark: #000000;
+
+  --spacing-toolbar-padding: 40px;
+  --header-height: 100px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,8 +49,37 @@
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  body {
+    @apply antialiased bg-white text-slate-900 font-gilroy;
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    display: flex;
+    place-items: center;
+  }
+
+  h1 {
+    @apply text-4xl leading-tight;
+  }
+
+  a {
+    @apply font-medium text-[#646cff] no-underline;
+  }
+
+  a:hover {
+    @apply text-[#535bf2];
+  }
+
+  button {
+    @apply rounded-lg border border-transparent px-4 py-2 text-base font-medium cursor-pointer transition-colors duration-200;
+    background-color: #1a1a1a;
+  }
+  button:hover {
+    @apply border-[#646cff];
+  }
+  button:focus,
+  button:focus-visible {
+    outline: 2px auto -webkit-focus-ring-color;
+  }
 }

@@ -1,0 +1,9 @@
+@reference "tailwindcss";
+
+.root {
+  @apply relative size-full bg-black touch-none select-none;
+}
+
+.canvas {
+  @apply block size-full;
+}

@@ -1,0 +1,40 @@
+@reference "tailwindcss";
+
+
+  .controls {
+    @apply px-[var(--toolbar-padding)] flex size-full items-center justify-between;
+  }
+
+  .btn {
+    @apply
+    bg-[var(--color-controls-btn)]
+    cursor-pointer
+    appearance-none
+    border
+    border-gray-200
+    px-[10px]
+    py-[6px]
+    leading-none
+    min-w-[40px]
+    pointer-events-auto;
+  }
+
+  .btn:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  .menu {
+    @apply flex flex-col p-0 rounded-tr-[8px] overflow-hidden;
+  }
+
+  .menu_btn {
+    @apply
+    w-full
+    px-5
+    py-2
+
+    bg-[var(--color-background-filter)]
+    rounded-none
+    cursor-pointer
+    pointer-events-auto;
+  }

@@ -1,0 +1,22 @@
+@reference "tailwindcss";
+
+.grid {
+  @apply
+  w-full
+  mx-auto
+  py-6
+  grid
+  gap-4
+  grid-cols-1
+  sm:grid-cols-2
+  lg:grid-cols-3
+  h-full
+  overflow-auto
+  box-border
+  border-[color:var(--border-gray)];
+  grid-auto-rows: max-content;
+}
+
+.state {
+  @apply max-w-6xl mx-auto px-4 py-10 text-slate-600;
+}

@@ -1,0 +1,11 @@
+@reference 'tailwindcss';
+
+.reset {
+  @apply text-[var(--color-white-100)]
+  text-[12px]
+    md:text-[16px]
+  cursor-pointer
+  transition-colors
+  border-0
+  bg-transparent;
+}

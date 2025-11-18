@@ -1,0 +1,13 @@
+@reference "tailwindcss";
+
+.detail_btn {
+  @apply flex gap-1 bg-transparent border-0 p-0;
+}
+
+.detail_text {
+  @apply text-sm text-[var(--color-text)];
+}
+
+.detail_icon {
+  @apply flex size-10 rounded-full bg-[var(--color-text)];
+}

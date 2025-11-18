@@ -1,0 +1,42 @@
+@reference "tailwindcss";
+
+.root {
+  @apply
+  min-h-[150px]
+  bg-[var(--background-page)]
+  border
+  border-[var(--border-gray)]
+  overflow-hidden
+  flex
+  flex-col
+  py-4
+  px-5;
+}
+
+.image {
+  @apply w-full aspect-[4/3] object-contain;
+}
+
+.body {
+  @apply p-3 flex flex-col gap-1;
+}
+
+.title {
+  @apply font-medium text-[var(--color-text)] uppercase;
+}
+
+.meta {
+  @apply text-sm text-[var(--color-text)] flex gap-3 flex-col;
+}
+
+.actions {
+  @apply flex justify-between gap-1 mt-5;
+}
+
+.price {
+  @apply mt-1 font-semibold;
+}
+
+.separator {
+  @apply border-b border-[var(--color-text)] flex-grow-1;
+}

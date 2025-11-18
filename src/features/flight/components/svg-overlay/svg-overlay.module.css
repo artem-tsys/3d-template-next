@@ -1,0 +1,26 @@
+@reference "tailwindcss";
+
+.root {
+  @apply absolute inset-0 pointer-events-none;
+}
+
+.inlineSvg {
+  @apply block size-full;
+}
+
+.layer {
+  @apply absolute z-[2] pointer-events-none;
+}
+
+/* By default let the SVG pass events through; only specific shapes accept pointer events */
+.layer :global(svg) {
+  pointer-events: none;
+}
+
+.layer :global(svg polygon) {
+  @apply fill-[rgba(255,255,255,0)] pointer-events-auto cursor-pointer;
+}
+
+.layer :global(svg polygon:hover) {
+  @apply cursor-pointer fill-[rgba(255,255,255,0.15)];
+}

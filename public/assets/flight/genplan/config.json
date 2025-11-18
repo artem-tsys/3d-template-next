@@ -1,0 +1,14 @@
+{
+	 	"baseUrl": "/assets/flight/genplan",
+	 	"frames": 120,
+	 	"ext": "jpg",
+	 	"stopFrames": [15,45,77,103],
+	 	"zeroPad": 0,
+	 	"initialFrame": 77,
+		"activeSvgs": {
+			"15":  "/assets/svg/genplan/15.svg",
+			"45": "/assets/svg/genplan/45.svg",
+			"77": "/assets/svg/genplan/77.svg",
+			"103": "/assets/svg/genplan/103.svg"
+		}
+}

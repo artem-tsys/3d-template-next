@@ -1,0 +1,52 @@
+@reference "tailwindcss";
+
+.root {
+  @apply grid grid-rows-[1fr_auto_auto] h-dvh w-dvw overflow-hidden;
+}
+
+.stage {
+  @apply w-full h-full overflow-hidden min-h-0;
+}
+
+.toolbar {
+  @apply absolute inset-0 size-full pointer-events-none z-[3];
+}
+
+.stills {
+  /* смуга превʼю */
+  @apply absolute top-full flex justify-center w-full transition-transform;
+}
+
+.stills::before {
+  @apply
+  content-['preview']
+  absolute
+  top-0
+  left-1/2
+  -translate-x-1/2
+  -translate-y-full
+  block
+  px-[10px]
+  rounded-t-[8px]
+  bg-gray-300
+    text-[12px]
+  cursor-pointer
+  transition-all;
+}
+
+.stills:hover {
+  @apply -translate-y-full;
+}
+
+.stills:hover::before {
+  @apply opacity-0 pointer-events-none;
+}
+
+
+.filter {
+  @apply hidden absolute top-0 left-0 z-[3] max-w-[300px] w-[30%] h-full -translate-x-full transition-transform;
+}
+
+.filter.open {
+  @apply flex flex-col translate-x-0;
+}

@@ -1,0 +1,14 @@
+{
+	 	"baseUrl": "/assets/flight/2/outside",
+	 	"frames": 120,
+	 	"ext": "jpg",
+	 	"stopFrames": [15,43,74,102],
+	 	"zeroPad": 0,
+	 	"initialFrame": 15,
+		"activeSvgs": {
+			"15":  "/assets/svg/flat/2/outside/15.svg",
+			"43": "/assets/svg/flat/2/outside/43.svg",
+			"74": "/assets/svg/flat/2/outside/74.svg",
+			"102": "/assets/svg/flat/2/outside/102.svg"
+		}
+}

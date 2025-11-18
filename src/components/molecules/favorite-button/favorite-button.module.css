@@ -1,0 +1,32 @@
+@reference "tailwindcss";
+
+/* базовий контейнер */
+.root {
+  @apply inline-flex items-center justify-center rounded-full transition-shadow focus:outline-none;
+  /* розмір контейнера і padding будуть додаватись за допомогою size* класів */
+}
+
+/* розміри */
+.size-sm { @apply w-8 h-8 text-[14px] p-1; }  /* 32px */
+.size-md { @apply w-10 h-10 text-[16px] p-1.5; } /* 40px */
+.size-lg { @apply w-12 h-12 text-[18px] p-2; } /* 48px */
+
+/* кольори для іконки (кольори задаються через fill of svg) */
+.icon {
+  @apply inline-block align-middle fill-transparent stroke-[#535bf2] stroke-2;
+}
+
+/* стан активного фавориту (трохи інша заливка/тінь) */
+.active {
+  @apply shadow-md fill-[#535bf2] text-[#535bf2];
+}
+
+/* disabled */
+.disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+/* фокусна рамка (доступність) */
+.root:focus-visible {
+  @apply ring-2 ring-offset-2;
+}

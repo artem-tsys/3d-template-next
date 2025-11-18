@@ -1,0 +1,47 @@
+@Layer base {
+  @font-face {
+    font-family: 'Arsenal';
+    src: url('./fonts/arsenalRegular/Arsenal-Regular.ttf') format('ttf'),
+        url('./fonts/arsenalRegular/Arsenal-Regular.eot') format('eot'),
+        url('./fonts/arsenalRegular/Arsenal-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Gilroy';
+    src: url('./fonts/gilroyBold/Gilroy-Bold.ttf') format('ttf'),
+        url('./fonts/gilroyBold/Gilroy-Bold.eot') format('eot'),
+        url('./fonts/gilroyBold/Gilroy-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Gilroy';
+    src: url('./fonts/gilroySemiBold/Gilroy-SemiBold.ttf') format('ttf'),
+    url('./fonts/gilroySemiBold/Gilroy-SemiBold.eot') format('eot'),
+    url('./fonts/gilroySemiBold/Gilroy-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Gilroy';
+    src: url('./fonts/gilroyMedium/Gilroy-Medium.ttf') format('ttf'),
+        url('./fonts/gilroyMedium/Gilroy-Medium.eot') format('eot'),
+        url('./fonts/gilroyMedium/Gilroy-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Gilroy';
+    src: url('./fonts/gilroyRegular/Gilroy-Regular.ttf') format('ttf'),
+        url('./fonts/gilroyRegular/Gilroy-Regular.eot') format('eot'),
+        url('./fonts/gilroyRegular/Gilroy-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+}

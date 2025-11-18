@@ -1,0 +1,16 @@
+@reference 'tailwindcss';
+
+.button {
+  @apply bg-transparent
+  border-0
+  rounded-none
+  cursor-pointer
+  flex
+  items-center
+  justify-center
+  p-[4px];
+}
+
+.icon {
+  @apply text-white text-2xl;
+}

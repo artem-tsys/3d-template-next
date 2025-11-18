@@ -1,0 +1,13 @@
+@reference "tailwindcss";
+
+.strip {
+  @apply grid gap-[8px] w-[500px] grid-cols-4;
+}
+
+.thumb {
+  @apply p-0 bg-[var(--color-background-default)] cursor-pointer overflow-hidden border border-[var(--color-background-default)] rounded-md;
+}
+
+.thumb img {
+  @apply block w-full h-auto;
+}

@@ -1,0 +1,18 @@
+@reference "tailwindcss";
+
+.row {
+  @apply flex gap-1;
+}
+
+.title {
+  @apply capitalize;
+}
+
+.value {
+  @apply w-3/10;
+}
+
+.separator {
+  @apply border-b border-[var(--color-text)] flex-grow-1;
+}
+

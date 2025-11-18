@@ -1,0 +1,16 @@
+@reference 'tailwindcss';
+
+.apply {
+  @apply text-[var(--color-white-100)]
+  text-[12px]
+    md:text-[16px]
+  p-0
+  cursor-pointer
+  transition-colors
+  border-0
+  bg-transparent;
+}
+
+.apply_disabled {
+  @apply text-[var(--color-dark-300)] bg-[var(--color-dark-200)]
+}

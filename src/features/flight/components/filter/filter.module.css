@@ -1,0 +1,29 @@
+@reference 'tailwindcss';
+
+.wrap {
+  @apply flex flex-col size-full bg-[var(--color-background-default)] pt-[calc(var(--toolbar-padding)+40px)];
+}
+
+.closeBtn {
+  @apply
+  absolute
+  top-[calc(var(--toolbar-padding)+40px)]
+  right-0
+  block
+  size-[30px]
+  p-0
+  rounded-none
+  bg-[var(--color-background-dark)]/85
+  cursor-pointer
+  translate-x-full;
+}
+
+.closeBtn:after,.closeBtn:before {
+  @apply block h-[1px] w-full bg-[var(--color-filter-close)] content-[''];
+}
+.closeBtn:after {
+  @apply transform rotate-45;
+}
+.closeBtn:before {
+  @apply transform -rotate-45;
+}
