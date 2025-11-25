@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from 'next/navigation'
 import "./globals.css";
-import { FilterSettingProvider } from "../features/filter/providers/filter-setting.provider";
-import { fetchFilterSettings } from "../features/filter/queries/filter-settings.query";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,21 +11,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-	let initialFilterSettings = null;
-	try {
-		initialFilterSettings = await fetchFilterSettings();
-	} catch (e) {}
-	
-	if (!initialFilterSettings) {
-		notFound();
-	}
-	
   return (
     <html lang="en">
       <body>
-	      <FilterSettingProvider initialFilterSettings={initialFilterSettings}>
-		      {children}
-	      </FilterSettingProvider>
+	      {children}
       </body>
     </html>
   );

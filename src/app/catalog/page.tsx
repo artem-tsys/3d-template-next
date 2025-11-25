@@ -1,33 +1,16 @@
-'use client';
+import { notFound } from "next/navigation";
+import { fetchFilterSettings } from "../../features/filter/queries/filter-settings.query";
+import { ClientPage } from "./page-client";
 
-import { FilterPanel } from "@/features/plannings/components/organisms/filter/filter-wrap";
-import PlanningsGrid from "@/features/plannings/components/organisms/grid/plannings-grid";
-import { useCallback, useState } from "react";
-import { FilterOpen } from "@/components/molecules/filter-open/filter-open";
-import styles from './catalog.module.css'
-
-export default function Page() {
-	const [openFilter, setOpenFilter] = useState(false);
+export default async function Page() {
+	let initialFilterSettings = null;
+	try {
+		initialFilterSettings = await fetchFilterSettings();
+	} catch (e) {}
 	
-	const handleOpenFilter = useCallback(() => {
-		setOpenFilter(true)
-	}, [])
+	if (!initialFilterSettings) {
+		notFound();
+	}
 	
-	const handleCloseFilter = useCallback(() => {
-		setOpenFilter(false)
-	}, [])
-	
-	return (
-		<div className={styles.root}>
-			<section className={`${styles.filter} ${openFilter ? styles.open : ''}`}>
-				<FilterPanel handleClose={handleCloseFilter}/>
-			</section>
-			<section className={styles.filter_open}>
-				<FilterOpen handleOpen={handleOpenFilter} />
-			</section>
-			<section className={styles.content}>
-				<PlanningsGrid />
-			</section>
-		</div>
-	)
+	return <ClientPage settings={initialFilterSettings} />
 }

@@ -10,7 +10,6 @@ export default function PlanningCard({ p }: { p: Apartment }) {
 	const [isFavorite, setFavorite] = useState(false);
 	const toggleFav = (id: string) => {
 		setFavorite((current) => !current);
-		console.log(`Toggle favorite for ${id}`);
 	}
 	
 	useEffect(() => {

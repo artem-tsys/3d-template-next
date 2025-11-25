@@ -22,7 +22,7 @@ export function FilterSlider({
 }: FilterSliderProps): JSX.Element {
 	const idFrom = "range-from";
 	const idTo = "range-to";
-
+	
 	return <>
 		<label className={styles.label}>{label}</label>
 		<Slider
