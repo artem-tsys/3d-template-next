@@ -1,6 +1,6 @@
 'use client';
 
-import { FilterPanel } from "@/features/plannings/components/organisms/filter/filter-wrap.module";
+import { FilterPanel } from "@/features/plannings/components/organisms/filter/filter-wrap";
 import PlanningsGrid from "@/features/plannings/components/organisms/grid/plannings-grid";
 import { useCallback, useState } from "react";
 import { FilterOpen } from "@/components/molecules/filter-open/filter-open";

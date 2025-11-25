@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { SmallCardFavorite } from "../../../../../components/molecules/favorite-button/presets";
+import { SmallCardFavorite } from "@/components/molecules/favorite-button/presets";
 import type { Apartment } from '../../../types';
 import DetailBtn from "../../atoms/details/detail-btn";
 import MetaElement from "../../molecules/meta/meta-element";
@@ -30,10 +30,6 @@ export default function PlanningCard({ p }: { p: Apartment }) {
 				<div className={styles.actions}>
 					<SmallCardFavorite active={isFavorite} onClick={() => toggleFav(p.id)} ariaLabel="Додати до обраного" />
 					<DetailBtn onClick={() => console.log(`Open details for ${p.id}`)}/>
-					{/*<button>*/}
-					{/*	<span>детальніше</span>*/}
-					{/*	<svg width="8" height="15" viewBox="0 0 8 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.5 1L7 7.5L0.5 14"/></svg>*/}
-					{/*</button>*/}
 				</div>
 			</div>
 		</article>

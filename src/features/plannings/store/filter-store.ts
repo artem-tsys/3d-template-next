@@ -3,6 +3,7 @@ import type { PlanningFilters } from '../types';
 
 type FilterStore = {
 	filters: PlanningFilters;
+	setFilters(filter: Partial<PlanningFilters>): void;
 	setRooms(rooms: number[] | undefined): void;
 	setRangeArea(min?: number, max?: number): void;
 	setRangePrice(min?: number, max?: number): void;
@@ -15,6 +16,10 @@ const initial: PlanningFilters = {};
 
 export const usePlanningFilters = create<FilterStore>((set) => ({
 	filters: initial,
+	setFilters: (settings) => set((state) => ({
+		...state,
+		...settings,
+	})),
 	setRooms: (rooms) => set((s) => ({ filters: { ...s.filters, rooms } })),
 	setRangeArea: (minArea, maxArea) =>
 		set((s) => ({ filters: { ...s.filters, minArea, maxArea } })),
