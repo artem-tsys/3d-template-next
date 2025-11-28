@@ -1,10 +1,10 @@
 import { usePlanningFilters } from '../../../store/filter-store';
-import { useApartments } from '../../../queries/apartments.query';
+import { useApartments } from '../../../hooks/useApartments';
 import PlanningCard from '../card/planning-card';
 import styles from './plannings-grid.module.css';
 
 export default function PlanningsGrid() {
-	const { filters } = usePlanningFilters();
+	const filters = usePlanningFilters(store => store.filters);
 	const { data: items, isLoading, error } = useApartments(filters);
 
 	if (isLoading) return <div className={styles.state}>Завантаження…</div>;

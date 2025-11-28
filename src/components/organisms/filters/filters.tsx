@@ -1,12 +1,12 @@
 'use client'
 import { useCallback, useMemo, useState } from 'react';
-import { FilterSettings } from "../../../types/filter-settings.types";
+import { Filters } from "@/features/plannings/types";
 import { ApplyButton } from "../../molecules/apply-button/apply-button";
 import { FilterSlider } from "../../molecules/filter-slider/filter-slider";
 import { Chip } from "../../atoms/chip/Chip";
-import { arraysEqual } from "../../../libs/arrays-equal";
+import { arraysEqual } from "@/libs/arrays-equal";
 import { ResetButton } from "../../molecules/reset-button/reset-button";
-import { usePlanningFilters } from '../../../features/plannings/store/filter-store';
+import { usePlanningFilters } from '@/features/plannings/store/filter-store';
 import styles from './filters.module.css';
 
 interface LocalFilterState {
@@ -17,23 +17,23 @@ interface LocalFilterState {
 	maxArea: number;
 	minPrice: number;
 	maxPrice:  number;
-	building: string[],
+	buildings: string[],
 }
 
 interface FilterProps {
-	settings: FilterSettings;
+	settings: Required<Filters>;
 }
 
 export default function FilterControl({ settings }: FilterProps) {
-	const defaultFilterState = {
+	const defaultFilterState: LocalFilterState = {
 		rooms: [],
-		floorFrom: settings.FLOOR_FROM,
-		floorTo: settings.FLOOR_TO,
-		minArea: settings.AREA_MIN,
-		maxArea: settings.AREA_MAX,
-		minPrice: settings.PRICE_MIN,
-		maxPrice: settings.PRICE_MAX,
-		building: [],
+		floorFrom: settings.floorFrom ?? 0,
+		floorTo: settings.floorTo ?? 0,
+		minArea: settings.minArea ?? 0,
+		maxArea: settings.maxArea ?? 0,
+		minPrice: settings.minPrice ?? 0,
+		maxPrice: settings.maxPrice ?? 0,
+		buildings: [],
 	};
 	const { filters, setFilters, reset } = usePlanningFilters();
 	
@@ -50,7 +50,7 @@ export default function FilterControl({ settings }: FilterProps) {
 			filters.minArea === localFilterState.minArea && filters.maxArea === localFilterState.maxArea;
 		const priceEqual =
 			filters.minPrice === localFilterState.minPrice && filters.maxPrice === localFilterState.maxPrice;
-		const buildingEqual = arraysEqual<string>(filters.building ?? [], localFilterState.building ?? []);
+		const buildingEqual = arraysEqual<string>(filters.buildings ?? [], localFilterState.buildings ?? []);
 		
 		return !(roomsEqual && areaEqual && floorEqual && priceEqual && buildingEqual);
 	}, [localFilterState, filters]);
@@ -75,7 +75,7 @@ export default function FilterControl({ settings }: FilterProps) {
 		return () => setLocalFilterState(prev => {
 			return {
 				...prev,
-				building: prev.building.includes(val) ? prev.building.filter(x => x !== val) : [...prev.building, val]
+				building: prev.buildings.includes(val) ? prev.buildings.filter(x => x !== val) : [...prev.buildings, val]
 			};
 		});
 	};
@@ -123,8 +123,8 @@ export default function FilterControl({ settings }: FilterProps) {
 			<div className={styles.group}>
 				<label className={styles.label}>Будинок</label>
 				<div className={styles.chips}>
-					{settings.BUILDINGS_PRESETS.map(n => {
-						const active = localFilterState.building?.includes(n);
+					{settings.buildings.map(n => {
+						const active = localFilterState.buildings?.includes(n);
 						return <Chip
 							key={n}
 							active={active}
@@ -135,8 +135,8 @@ export default function FilterControl({ settings }: FilterProps) {
 			</div>
 			<div className={styles.group}>
 				<FilterSlider
-					from={settings.FLOOR_FROM}
-					to={settings.FLOOR_TO}
+					from={settings.floorFrom}
+					to={settings.floorTo}
 					values={[localFilterState.floorFrom, localFilterState.floorTo]}
 					step={1}
 					label='Поверх'
@@ -145,8 +145,8 @@ export default function FilterControl({ settings }: FilterProps) {
 			</div>
 			<div className={styles.group}>
 				<FilterSlider
-					from={settings.AREA_MIN}
-					to={settings.AREA_MAX}
+					from={settings.minArea}
+					to={settings.maxArea}
 					values={[localFilterState.minArea, localFilterState.maxArea]}
 					label={<label className={styles.label}>Площа, м²</label>}
 					setRange={setAreaRange}
@@ -154,8 +154,8 @@ export default function FilterControl({ settings }: FilterProps) {
 			</div>
 			<div className={styles.group}>
 				<FilterSlider
-					from={settings.PRICE_MIN}
-					to={settings.PRICE_MAX}
+					from={settings.maxPrice}
+					to={settings.maxPrice}
 					values={[localFilterState.minPrice, localFilterState.maxPrice]}
 					step={1000}
 					label={<label className={styles.label}>Ціна</label>}
@@ -165,7 +165,7 @@ export default function FilterControl({ settings }: FilterProps) {
 			<div className={styles.group}>
 				<label>Кімнати</label>
 				<div className={styles.chips}>
-					{settings.ROOM_PRESETS.map(n => {
+					{settings.rooms.map(n => {
 						const active = localFilterState.rooms?.includes(n);
 						return <Chip
 							key={n}

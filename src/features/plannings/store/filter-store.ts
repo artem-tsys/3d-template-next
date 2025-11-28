@@ -1,32 +1,23 @@
 import { create } from 'zustand';
-import type { PlanningFilters } from '../types';
+import type { Filters } from '../types';
 
 type FilterStore = {
-	filters: PlanningFilters;
-	setFilters(filter: Partial<PlanningFilters>): void;
-	setRooms(rooms: number[] | undefined): void;
-	setRangeArea(min?: number, max?: number): void;
-	setRangePrice(min?: number, max?: number): void;
-	setRangeFloor(min?: number, max?: number): void;
-	setBuilding(building: string[] | undefined): void;
+	filters: Partial<Filters>;
+	setFilters(filter: Partial<Filters>): void;
 	reset(): void;
 };
 
-const initial: PlanningFilters = {};
+const initial: Partial<Filters> = {};
 
 export const usePlanningFilters = create<FilterStore>((set) => ({
 	filters: initial,
-	setFilters: (settings) => set((state) => ({
-		...state,
-		...settings,
-	})),
-	setRooms: (rooms) => set((s) => ({ filters: { ...s.filters, rooms } })),
-	setRangeArea: (minArea, maxArea) =>
-		set((s) => ({ filters: { ...s.filters, minArea, maxArea } })),
-	setRangePrice: (minPrice, maxPrice) =>
-		set((s) => ({ filters: { ...s.filters, minPrice, maxPrice } })),
-	setRangeFloor: (minFloor, maxFloor) =>
-		set((s) => ({ filters: { ...s.filters, minFloor, maxFloor } })),
-	setBuilding: (building) => set((s) => ({ filters: { ...s.filters, building } })),
+	setFilters: (settings) => {
+		return set((state) => ({
+			filters: {
+				...state.filters,
+				...settings,
+			},
+		}))
+	},
 	reset: () => set({ filters: initial }),
 }));

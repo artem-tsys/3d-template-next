@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { SmallCardFavorite } from "@/components/molecules/favorite-button/presets";
-import type { Apartment } from '../../../types';
+import type { Apartment } from '@/types/apartments.types';
 import DetailBtn from "../../atoms/details/detail-btn";
 import MetaElement from "../../molecules/meta/meta-element";
 import Image from 'next/image';

@@ -1,4 +1,4 @@
-export type FilterSettings = {
+export interface FilterSettings {
 	BUILDINGS_PRESETS: string[];
 	ROOM_PRESETS: number[];
 	AREA_MIN: number;
@@ -7,4 +7,4 @@ export type FilterSettings = {
 	FLOOR_TO: number;
 	PRICE_MIN: number;
 	PRICE_MAX: number;
-};
+}

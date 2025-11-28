@@ -1,46 +1,55 @@
-import { useEffect, useRef, useState } from "react";
-import { Apartment, ApartmentFilters, ApartmentsResponse } from '../types'
+import { toApiPayload } from "../../filter/adapters/filters.adapter";
+import { Filters, ApartmentsResponse } from '../types'
 import { http } from '@/shared/api/http';
 
-export async function fetchApartments(filters: ApartmentFilters): Promise<ApartmentsResponse> {
-	const resp = await http.get<ApartmentsResponse>('/plannings', {
-		params: filters,
+const QUERY = `
+  query Apartments($filters: Filters) {
+    apartments(filters: $filters) {
+      items {
+        id
+        building
+        rooms
+        area
+        imageUrl
+      }
+      count
+    }
+  }
+`;
+
+type GraphQLError = { message: string };
+type GraphQLResponse<T> = {
+	data?: T;
+	errors?: GraphQLError[];
+};
+
+export async function fetchApartments(
+	filters: Filters,
+	signal?: AbortSignal
+): Promise<ApartmentsResponse> {
+	const filtersParams = toApiPayload(filters);
+	const res = await http.post<GraphQLResponse<{ apartments: ApartmentsResponse }>>(
+		'/plannings',
+		{ query: QUERY, variables: { filters: filtersParams } },
+		{
+		headers: { "Content-Type": "application/json" },
+		signal,
 	})
-	return resp.data;
-}
-
-interface ApartmentState {
-	data: Apartment[],
-	isLoading: boolean,
-	error: Error | null,
-}
-
-const defaultState: ApartmentState = { data: [], isLoading: true, error: null }
-
-export function useApartments(filters: ApartmentFilters) {
-	const [state, setApartmentsState] = useState<ApartmentState>(defaultState);
-	const abortRef = useRef<AbortController | null>(null)
 	
-	useEffect(() => {
-		if (abortRef.current) abortRef.current.abort()
-		abortRef.current = new AbortController()
-		
-		fetchApartments(filters)
-			.then((res) => {
-				setApartmentsState({
-					data: res.items ?? [],
-					isLoading: false,
-					error: null
-				})
-			})
-			.catch((error) => {
-				setApartmentsState({
-					data: [],
-					isLoading: false,
-					error: error
-				})
-			})
-	}, [filters])
+	const payload = res.data;
 	
-	return state;
+	if (!payload) {
+		throw new Error("Empty response from server");
+	}
+	
+	if (payload.errors?.length) {
+		throw new Error(payload.errors.map((e) => e.message).join("; "));
+	}
+	
+	const apartments = payload.data?.apartments;
+	if (!apartments) {
+		throw new Error("Malformed response: apartments data is missing");
+	}
+	
+	return apartments;
 }

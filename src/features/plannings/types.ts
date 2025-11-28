@@ -1,33 +1,11 @@
-export type ApartmentId = string;
-
-export type Apartment = {
-	id: ApartmentId;
-	building: string;
-	rooms: number;
-	area: number;
-	price: number;
-	imageUrl: string;
-};
-
-export type ApartmentFilters = {
-	building?: string[];
-	viewMode?: 'exterior' | 'interior' | 'plans' | 'genplan';
-	section?: string;
-	floorFrom?: number;
-	floorTo?: number;
-	rooms?: number[];
-	minArea?: number;
-	maxArea?: number;
-	minPrice?: number;
-	maxPrice?: number;
-};
+import { Apartment } from "@/types/apartments.types";
 
 export type ApartmentsResponse = {
 	items: Apartment[];
 	total: number;
 };
 
-export type PlanningFilters = {
+export type Filters = {
 	rooms?: number[];
 	minArea?: number;
 	maxArea?: number;
@@ -35,5 +13,5 @@ export type PlanningFilters = {
 	maxPrice?: number;
 	floorFrom?: number;
 	floorTo?: number;
-	building?: string[];
+	buildings?: string[];
 }

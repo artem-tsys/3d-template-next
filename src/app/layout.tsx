@@ -1,3 +1,4 @@
+import { AntdRegistry } from "@ant-design/nextjs-registry";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -14,7 +15,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-	      {children}
+        <AntdRegistry>{children}</AntdRegistry>
       </body>
     </html>
   );
