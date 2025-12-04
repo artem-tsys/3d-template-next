@@ -11,21 +11,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --toolbar-padding: 40px
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-
-}
-
-@theme {
-  --font-gilroy: 'Gilroy', sans-serif;
-  --font-arsenal: 'Arsenal', sans-serif;
-
-  --color-controls-btn: #ffffff;
-
+  --color-white-200: #D2D2D2;
   --color-white-100: #F3EFE9;
   --color-white: #FFFFFF;
 
@@ -38,14 +25,42 @@
   --color-dark-100: #2D2D2D;
   --color-dark: #000000;
 
+  --toolbar-padding: 40px;
+  --background: var(--color-dark-200);
+}
+
+@theme inline {
+  --color-background: var(--background);
+}
+
+@theme {
+  --font-gilroy: 'Gilroy', sans-serif;
+  --font-arsenal: 'Arsenal', sans-serif;
+
+  --color-white-100: var(--color-white-100);
+  --color-white: var(--color-white);
+
+  --color-gold: var(--color-gold);
+
+  --color-red: var(--color-red);
+
+  --color-dark-300: var(--color-dark-300);
+  --color-dark-200: var(--color-dark-200);
+  --color-dark-100: var(--color-dark-100);
+  --color-dark: var(--color-dark);
+
+  --color-text-white: var(--color-white-200);
+  --color-text-dark: var(--color-dark-200);
+
+  --color-controls-btn: var(--color-white);
+  --color-favourite-bg: var(--color-dark-100);
   --spacing-toolbar-padding: 40px;
   --header-height: 100px;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--color-dark-200);
   }
 }
 
@@ -69,17 +84,5 @@
 
   a:hover {
     @apply text-[#535bf2];
-  }
-
-  button {
-    @apply rounded-lg border border-transparent px-4 py-2 text-base font-medium cursor-pointer transition-colors duration-200;
-    background-color: #1a1a1a;
-  }
-  button:hover {
-    @apply border-[#646cff];
-  }
-  button:focus,
-  button:focus-visible {
-    outline: 2px auto -webkit-focus-ring-color;
   }
 }

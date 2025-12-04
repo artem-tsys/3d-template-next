@@ -1,13 +1,31 @@
 @reference "tailwindcss";
 
 .detail_btn {
-  @apply flex gap-1 bg-transparent border-0 p-0;
+  @apply
+  flex
+  items-center
+  gap-2
+  bg-transparent
+  border-0
+  p-0
+  cursor-pointer;
+
+  &:hover {}
 }
 
 .detail_text {
-  @apply text-sm text-[var(--color-text)];
+  @apply
+  text-sm
+  text-[var(--color-text-white)]
+  align-bottom
+  capitalize;
 }
 
 .detail_icon {
-  @apply flex size-10 rounded-full bg-[var(--color-text)];
+  @apply
+  flex
+  size-2
+  rounded-full
+  stroke-[var(--color-text-white)]
+  fill-[var(--color-text-white)];
 }

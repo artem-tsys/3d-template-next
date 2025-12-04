@@ -9,6 +9,7 @@ import styles from './planning-card.module.css';
 export default function PlanningCard({ p }: { p: Apartment }) {
 	const [isFavorite, setFavorite] = useState(false);
 	const toggleFav = (id: string) => {
+		console.log('toggleFav', id)
 		setFavorite((current) => !current);
 	}
 	

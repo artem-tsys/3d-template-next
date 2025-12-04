@@ -5,13 +5,11 @@
   h-dvh
   w-dvw
   grid
-  /*grid-cols-[1fr]*/
-  /*md:grid-cols-[auto_1fr]*/
   gap-x-15
   px-4
-    pt-[var(--toolbar-padding)]
+  pt-[var(--toolbar-padding)]
   overflow-hidden
-  bg-[var(--background-page)];
+  bg-[var(--background)];
 
   grid-template-areas: 'filter filter'
   'filter-open title'

@@ -2,8 +2,17 @@
 
 /* базовий контейнер */
 .root {
-  @apply inline-flex items-center justify-center rounded-full transition-shadow focus:outline-none;
-  /* розмір контейнера і padding будуть додаватись за допомогою size* класів */
+  @apply
+  inline-flex
+  items-center
+  justify-center
+  rounded-full
+  transition-shadow
+  focus:outline-none
+  flex-shrink-0
+  outline-[var(--color-gold)]
+  bg-[var(--color-favourite-bg)]
+  cursor-pointer;
 }
 
 /* розміри */
@@ -13,12 +22,19 @@
 
 /* кольори для іконки (кольори задаються через fill of svg) */
 .icon {
-  @apply inline-block align-middle fill-transparent stroke-[#535bf2] stroke-2;
+  @apply
+  inline-block
+  align-middle
+  fill-transparent
+  stroke-[var(--color-gold)]
+  stroke-1
+  outline-[var(--color-gold)]
+  transition-colors;
 }
 
 /* стан активного фавориту (трохи інша заливка/тінь) */
-.active {
-  @apply shadow-md fill-[#535bf2] text-[#535bf2];
+.active .icon{
+  @apply shadow-md fill-[var(--color-gold)];
 }
 
 /* disabled */
