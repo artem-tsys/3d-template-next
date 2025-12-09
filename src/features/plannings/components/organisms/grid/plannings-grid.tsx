@@ -1,19 +1,16 @@
-import { usePlanningFilters } from '../../../store/filter-store';
-import { useApartments } from '../../../hooks/useApartments';
+import { ApartmentState } from '../../../hooks/useApartments';
 import PlanningCard from '../card/planning-card';
 import styles from './plannings-grid.module.css';
 
-export default function PlanningsGrid() {
-	const filters = usePlanningFilters(store => store.filters);
-	const { data: items, isLoading, error } = useApartments(filters);
+export default function PlanningsGrid({ data, isLoading, error }: ApartmentState) {
 
 	if (isLoading) return <div className={styles.state}>Завантаження…</div>;
 	if (error)     return <div className={styles.state}>Помилка завантаження</div>;
-	if (!items.length) return <div className={styles.state}>Нічого не знайдено</div>;
+	if (!data.length) return <div className={styles.state}>Нічого не знайдено</div>;
 	
 	return (
 		<div className={styles.grid}>
-			{items.map(p => <PlanningCard key={p.id} p={p} />)}
+			{data.map(p => <PlanningCard key={p.id} p={p} />)}
 		</div>
 	);
 }

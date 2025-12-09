@@ -5,14 +5,13 @@
   h-dvh
   w-dvw
   grid
-  gap-x-15
   px-4
   pt-[var(--toolbar-padding)]
   overflow-hidden
   bg-[var(--background)];
 
-  grid-template-areas: 'filter filter'
-  'filter-open title'
+  grid-template-areas: 'filter-open .'
+  'filter-open .'
   'content content';
 }
 
@@ -32,7 +31,8 @@
 .content {
   @apply
   overflow-y-auto
-  overflow-x-hidden;
+  overflow-x-hidden
+  mt-2;
 
   grid-area: content;
 }
@@ -43,4 +43,5 @@
 
 .filter_open {
   grid-area: filter-open;
+  align-content: center;
 }
