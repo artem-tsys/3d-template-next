@@ -1,21 +1,14 @@
-import { useEffect, useState } from "react";
 import { SmallCardFavorite } from "@/components/molecules/favorite-button/presets";
 import type { Apartment } from '@/types/apartments.types';
+import useFavouritesStore from "../../../../../stores/favourites/favourites.store";
 import DetailBtn from "../../atoms/details/detail-btn";
 import MetaElement from "../../molecules/meta/meta-element";
 import Image from 'next/image';
 import styles from './planning-card.module.css';
 
 export default function PlanningCard({ p }: { p: Apartment }) {
-	const [isFavorite, setFavorite] = useState(false);
-	const toggleFav = (id: string) => {
-		console.log('toggleFav', id)
-		setFavorite((current) => !current);
-	}
-	
-	useEffect(() => {
-		console.log('PlanningCard mounted');
-	}, [])
+	const updateFav = useFavouritesStore(s => s.updateFavourite);
+	const isFavorite = useFavouritesStore(s => s.isFavourite(p.id));
 	
 	return (
 		<article className={styles.root} aria-label={`planning-${p.id}`}>
@@ -28,7 +21,11 @@ export default function PlanningCard({ p }: { p: Apartment }) {
 					<MetaElement title="площа" value={`${p.area} м²`} />
 				</div>
 				<div className={styles.actions}>
-					<SmallCardFavorite active={isFavorite} onClick={() => toggleFav(p.id)} ariaLabel="Додати до обраного" />
+					<SmallCardFavorite
+						active={isFavorite}
+						onClick={() => updateFav(p.id)}
+						ariaLabel="Додати до обраного"
+					/>
 					<DetailBtn onClick={() => console.log(`Open details for ${p.id}`)}/>
 				</div>
 			</div>
