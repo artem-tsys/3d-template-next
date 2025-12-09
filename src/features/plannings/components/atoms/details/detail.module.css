@@ -15,7 +15,8 @@
 
 .detail_text {
   @apply
-  text-sm
+  text-[10px]
+    md:text-[15px]
   text-[var(--color-text-white)]
   align-bottom
   capitalize;
@@ -24,8 +25,22 @@
 .detail_icon {
   @apply
   flex
-  size-2
+  h-3
+  w-2
   rounded-full
   stroke-[var(--color-text-white)]
   fill-[var(--color-text-white)];
+}
+
+.detail_icon_wrap {
+  @apply
+  flex
+  items-center
+  justify-center
+  h-[12px]
+  w-[5px]
+    md:size-[40px]
+  md:border
+  rounded-full;
+  border-color: var(--color-dark-300);
 }

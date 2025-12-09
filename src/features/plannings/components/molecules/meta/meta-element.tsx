@@ -9,9 +9,9 @@ export default function MetaElement({
 	title,
 	value,
 }: IMetaElement){
-	return <div className={styles.row}>
+	return <>
 		<span className={styles.title}>{title}:</span>
 		<span className={styles.separator}></span>
 		<span className={styles.value}>{value}</span>
-	</div>
+	</>
 }

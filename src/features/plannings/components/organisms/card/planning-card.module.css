@@ -26,16 +26,19 @@
   font-medium
   text-[var(--color-text-white)]
   text-[10px]
+    md:text-[16px]
   uppercase;
 }
 
 .meta {
   @apply
   text-[10px]
+    md:text-[14px]
   text-[var(--color-text-white)]
-  flex
-  gap-3
-  flex-col;
+  gap-2
+  grid
+  grid-cols-[auto_1fr_max-content]
+  mt-2;
 }
 
 .actions {
