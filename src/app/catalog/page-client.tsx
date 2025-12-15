@@ -33,6 +33,7 @@ export const ClientPage: React.FC<Props> = ({ settings }) =>  {
 			<section className={`${styles.filter} ${openFilter ? styles.open : ''}`}>
 				<FilterPanel
 					handleClose={handleCloseFilter}
+					isOpen={openFilter}
 					filter={<FilterControl settings={settings} />}
 				/>
 			</section>

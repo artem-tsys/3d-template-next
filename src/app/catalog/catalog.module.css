@@ -2,6 +2,7 @@
 
 .root {
   @apply
+    relative
   h-dvh
   w-dvw
   grid
@@ -17,15 +18,18 @@
 
 .filter {
   @apply
-    absolute
-    top-0
-    left-0
+  absolute
+  top-0
+  left-0
   h-lvh
   w-lvw
+  md:w-[max-content]
   -translate-x-full
   transition-transform
   duration-300
   z-10;
+
+  grid-area: filter;
 }
 
 .content {
@@ -38,7 +42,9 @@
 }
 
 .open {
-  @apply translate-x-0;
+  @apply
+  translate-x-0
+  visible;
 }
 
 .filter_open {

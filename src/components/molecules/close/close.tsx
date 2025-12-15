@@ -7,11 +7,11 @@ import styles from './close.module.css';
 interface Props {
 	className?: string;
 	onClick: () => void;
-	'area-label'?: string;
+	'aria-label'?: string;
 }
 
-export function Close({ className, onClick, 'area-label': ariaLabel}: Props): JSX.Element {
-	return <button area-label={ariaLabel} className={cn(`${styles.button} ${className}`)} onClick={onClick}>
+export function Close({ className, onClick, 'aria-label': ariaLabel}: Props): JSX.Element {
+	return <button aria-label={ariaLabel} className={cn(styles.button, className)} onClick={onClick}>
 		<CloseOutlined className={styles.icon}/>
 	</button>
 }

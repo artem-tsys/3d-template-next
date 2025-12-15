@@ -1,0 +1,44 @@
+@reference 'tailwindcss';
+
+.root {
+  @apply
+  w-full
+  md:w-[400px]
+  h-full
+  bg-[var(--color-dark-100)]
+  p-4
+  pt-[calc(var(--toolbar-padding)+40px)];
+}
+
+.head {
+  @apply flex items-center justify-between
+}
+
+.title {
+  @apply text-xl text-[var(--color-white-100)];
+}
+
+.close {
+  @apply
+  invisible
+  text-[var(--color-white-100)]
+
+  md:absolute
+  md:left-full
+  md:bg-[var(--color-dark-100)]
+  md:size-[50px]
+
+}
+
+.close svg {
+  @apply
+  transition-transform
+    duration-300
+  hover:rotate-90
+  hover:scale-110
+  hover:text-[var(--color-white)];
+}
+
+.close_open {
+  @apply visible;
+}

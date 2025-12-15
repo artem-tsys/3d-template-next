@@ -29,7 +29,7 @@
   px-[10px]
   rounded-t-[8px]
   bg-gray-300
-    text-[12px]
+  text-[12px]
   cursor-pointer
   transition-all;
 }
@@ -44,7 +44,17 @@
 
 
 .filter {
-  @apply hidden absolute top-0 left-0 z-[3] max-w-[300px] w-[30%] h-full -translate-x-full transition-transform;
+  @apply
+  hidden
+  absolute
+  top-0
+  left-0
+  z-[3]
+  max-w-[300px]
+  w-[30%]
+  h-full
+  -translate-x-full
+  transition-transform;
 }
 
 .filter.open {

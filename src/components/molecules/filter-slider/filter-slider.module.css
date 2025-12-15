@@ -1,6 +1,0 @@
-@reference "tailwindcss";
-
-.inputs {
-  @apply flex w-full gap-2 justify-between;
-}
-

@@ -3,12 +3,12 @@
 import { useCallback, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useFlightConfig } from "@/features/flight/hooks/use-flight-config";
-import { FilterWrap } from "@/features/flight/ui/filter/filter-wrapper";
-import { Toolbar } from "@/features/flight/ui/toolbar/toolbar";
+import { FilterWrap } from "@/features/flight/components/filter/filter-wrapper";
+import { Toolbar } from "@/features/flight/components/toolbar/toolbar";
 import styles from './flight.module.css'
 import { FlightProvider } from '@/features/flight/provider/flight-provider'
-import FlyaroundCanvas from '@/features/flight/ui/flyaround-canvas/flyaround-canvas'
-import StillsStrip from '@/features/flight/ui/stills-strip/stills-strip'
+import FlyaroundCanvas from '@/features/flight/components/flyaround-canvas/flyaround-canvas'
+import StillsStrip from '@/features/flight/components/stills-strip/stills-strip'
 import { useFlight } from '@/features/flight/hooks/use-flight'
 
 function Stills() {

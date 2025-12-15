@@ -1,36 +1,7 @@
 @reference "tailwindcss";
 
-.root {
-  @apply
-  absolute
-  top-0
-  left-0
-  w-full
-    md:w-[400px]
-  h-full
-  bg-[var(--color-dark-100)]
-  p-4
-  pt-[calc(var(--toolbar-padding)+40px)];
-}
-
-.head {
-  @apply flex items-center justify-between
-}
-
-.title {
-  @apply text-xl text-[var(--color-white-100)];
-}
-
 .group {
   @apply flex flex-col gap-1 mt-4 mb-5;
-}
-
-.root label {
-  @apply text-[12px] md:text-[16px] text-white;
-}
-
-.group label + * {
-  @apply mt-4;
 }
 
 .chips {
@@ -58,10 +29,12 @@
   @apply ml-auto flex gap-2 w-full justify-between;
 }
 
-.close {
-  @apply
-  md:absolute
-  md:left-full
-  md:bg-[var(--color-dark-100)]
-  md:size-[50px];
-}
+/*.close {*/
+/*  @apply*/
+/*    invisible*/
+/*    text-[var(--color-white-100)]*/
+/*  md:absolute*/
+/*  md:left-full*/
+/*  md:bg-[var(--color-dark-100)]*/
+/*  md:size-[50px];*/
+/*}*/

@@ -1,6 +1,7 @@
 'use client'
 import { useCallback, useMemo, useState } from 'react';
 import { Filters } from "@/features/plannings/types";
+import { LabelFilter } from "../../atoms/label/label-filter";
 import { ApplyButton } from "../../molecules/apply-button/apply-button";
 import { FilterSlider } from "../../molecules/filter-slider/filter-slider";
 import { Chip } from "../../atoms/chip/Chip";
@@ -121,7 +122,7 @@ export default function FilterControl({ settings }: FilterProps) {
 	return (
 		<div>
 			<div className={styles.group}>
-				<label className={styles.label}>Будинок</label>
+				<LabelFilter>Будинок</LabelFilter>
 				<div className={styles.chips}>
 					{settings.buildings.map(n => {
 						const active = localFilterState.buildings?.includes(n);
@@ -139,7 +140,7 @@ export default function FilterControl({ settings }: FilterProps) {
 					to={settings.floorTo}
 					values={[localFilterState.floorFrom, localFilterState.floorTo]}
 					step={1}
-					label='Поверх'
+					label={<LabelFilter>Поверх</LabelFilter>}
 					setRange={setFloorRange}
 				/>
 			</div>
@@ -148,7 +149,7 @@ export default function FilterControl({ settings }: FilterProps) {
 					from={settings.minArea}
 					to={settings.maxArea}
 					values={[localFilterState.minArea, localFilterState.maxArea]}
-					label={<label className={styles.label}>Площа, м²</label>}
+					label={<LabelFilter>Площа, м²</LabelFilter>}
 					setRange={setAreaRange}
 				/>
 			</div>
@@ -158,12 +159,12 @@ export default function FilterControl({ settings }: FilterProps) {
 					to={settings.maxPrice}
 					values={[localFilterState.minPrice, localFilterState.maxPrice]}
 					step={1000}
-					label={<label className={styles.label}>Ціна</label>}
+					label={<LabelFilter>Ціна</LabelFilter>}
 					setRange={setPriceRange}
 				/>
 			</div>
 			<div className={styles.group}>
-				<label>Кімнати</label>
+				<LabelFilter>Кімнати</LabelFilter>
 				<div className={styles.chips}>
 					{settings.rooms.map(n => {
 						const active = localFilterState.rooms?.includes(n);

@@ -1,6 +1,5 @@
 import { InputNumber } from "antd";
 import { JSX } from "react";
-import styles from "./filter-slider.module.css";
 import Slider from "../slider/Slider";
 
 interface FilterSliderProps {
@@ -24,7 +23,7 @@ export function FilterSlider({
 	const idTo = "range-to";
 	
 	return <>
-		<label className={styles.label}>{label}</label>
+		{label || ''}
 		<Slider
 			range
 			min={from}
@@ -33,18 +32,16 @@ export function FilterSlider({
 			value={values}
 			onChange={(v) => setRange(v as [number, number])}
 		/>
-		<div className={styles.inputs}>
+		<div className='flex w-full gap-2 justify-between'>
 			<InputNumber
 				value={values[0]}
 				max={to}
-				className={styles.input}
 				aria-label="range from"
 				name={idFrom}
 				onChange={(v) => setRange([v as number, values[1]])}
 			/>
 			<InputNumber
 				value={values[1]}
-				className={styles.input}
 				min={from}
 				aria-label="range to"
 				name={idTo}
